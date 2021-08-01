@@ -4,15 +4,43 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private Rigidbody2D _rigidbody2D;
+    [SerializeField] private float _speed;
+    [SerializeField] private float _jumpForce;
+
+    private void Update()
     {
-        
+        if (Input.GetKey(KeyCode.D))
+        {
+            HorizontalMove(1f);
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            HorizontalMove(-1f);
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            _spriteRenderer.flipX = false;
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            _spriteRenderer.flipX = true;
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Jump!");
+            _rigidbody2D.AddForce(Vector2.up * _jumpForce);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void HorizontalMove(float direction)
     {
-        
+        transform.Translate(_speed * Time.deltaTime * direction, 0, 0);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //collision.gameObject.GetComponent
     }
 }
