@@ -7,6 +7,7 @@ public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private Rigidbody2D _rigidbody2D;
+    [SerializeField] private Transform _respawnPoition;
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpForce;
     [SerializeField] private UnityEvent _pickedUp;
@@ -41,16 +42,6 @@ public class PlayerMove : MonoBehaviour
         transform.Translate(_speed * Time.deltaTime * direction, 0, 0);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        /*Coin coin = collision.otherCollider.gameObject.GetComponent<Coin>();
-            Debug.Log("Col   lider!");
-        if(coin != null)
-        {
-            Debug.Log("Collider!");
-        }*/
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Coin coin = collision.gameObject.GetComponent<Coin>();
@@ -60,5 +51,14 @@ public class PlayerMove : MonoBehaviour
             _pickedUp.Invoke();
             Destroy(coin.gameObject);
         }
+        PatrolMovement enemy = collision.gameObject.GetComponent<PatrolMovement>();
+        if(enemy != null)
+        {
+            Respawn();
+        }
+    }
+    private void Respawn()
+    {
+        transform.position = new Vector3(_respawnPoition.position.x, _respawnPoition.position.y);
     }
 }

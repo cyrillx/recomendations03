@@ -275,7 +275,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 126967105}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.82, y: 1.38, z: 0}
+  m_LocalPosition: {x: -8.44, y: -3.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -313,7 +313,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.6}
+  m_Offset: {x: -0.01, y: 0.6}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -324,7 +324,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.73, y: 1.11}
+  m_Size: {x: 0.63, y: 1.11}
   m_EdgeRadius: 0
 --- !u!50 &126967110
 Rigidbody2D:
@@ -346,7 +346,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 5
+  m_Constraints: 4
 --- !u!114 &126967111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,8 +361,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 126967106}
   _rigidbody2D: {fileID: 126967110}
-  _speed: 4.82
-  _jumpForce: 200
+  _respawnPoition: {fileID: 1125903146}
+  _speed: 4
+  _jumpForce: 350
   _pickedUp:
     m_PersistentCalls:
       m_Calls:
@@ -710,6 +711,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5667542392222642909}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1125903145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1125903146}
+  m_Layer: 0
+  m_Name: Respawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1125903146
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125903145}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.42, y: -2.49, z: -4.006073}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1391444156 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 854797051076397924, guid: 96834eadd467ede42b6cc8d3d0da5833,
@@ -1672,11 +1703,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2886556042340907377, guid: bfb2452f487452543af926c60b5d58bd,
-        type: 3}
-      propertyPath: m_FlipX
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2886556042340907379, guid: bfb2452f487452543af926c60b5d58bd,
         type: 3}
       propertyPath: m_Name
@@ -1686,16 +1712,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2886556042340907382, guid: bfb2452f487452543af926c60b5d58bd,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2886556042340907382, guid: bfb2452f487452543af926c60b5d58bd,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2886556042340907382, guid: bfb2452f487452543af926c60b5d58bd,
         type: 3}
