@@ -18,13 +18,13 @@ public class CoinSpawner : MonoBehaviour
         {
             _points[i] = _spawnCluster.GetChild(i);
         }
-        //SpawnNextCoin();
+        SpawnNextCoin();
     }
 
     public void SpawnNextCoin()
     {
-        //GameObject.Instantiate(_coinTemplate, _points[_currentPoint].position, Quaternion.identity);
-
+        GameObject.Instantiate(_coinTemplate, _points[_currentPoint].position, Quaternion.identity, transform);
+        _currentPoint++;
         if(_currentPoint == _points.Length)
             _currentPoint = 0;
     }

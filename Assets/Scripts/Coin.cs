@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Coin : MonoBehaviour
 {
-    [SerializeField] private UnityEvent _pickedUp;
+    private CoinSpawner _coinSpawner;
+
+    private void Start()
+    {
+        _coinSpawner = gameObject.GetComponentInParent<CoinSpawner>();
+    }
 
     private void OnDestroy()
     {
-        //_pickedUp.Invoke();
+        //_coinSpawner.SpawnNextCoin();
     }
 }

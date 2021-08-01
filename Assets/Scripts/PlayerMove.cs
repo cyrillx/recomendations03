@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpForce;
+    [SerializeField] private UnityEvent _pickedUp;
 
     private void Update()
     {
@@ -41,6 +43,22 @@ public class PlayerMove : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //collision.gameObject.GetComponent
+        /*Coin coin = collision.otherCollider.gameObject.GetComponent<Coin>();
+            Debug.Log("Col   lider!");
+        if(coin != null)
+        {
+            Debug.Log("Collider!");
+        }*/
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Coin coin = collision.gameObject.GetComponent<Coin>();
+        if (coin != null)
+        {
+            Debug.Log("Collider!");
+            _pickedUp.Invoke();
+            Destroy(coin.gameObject);
+        }
     }
 }
