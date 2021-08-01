@@ -8,9 +8,13 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private Transform _respawnPoition;
-    [SerializeField] private float _speed;
+    [SerializeField] private float _maxSpeed;
     [SerializeField] private float _jumpForce;
     [SerializeField] private UnityEvent _pickedUp;
+    [SerializeField] private Animator _animator;
+
+    private float _speed = 0;
+    private bool isLeftDirected;
 
     private void Update()
     {
@@ -24,11 +28,17 @@ public class PlayerMove : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            _spriteRenderer.flipX = false;
+            isLeftDirected = false;
+            startRun();
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
-            _spriteRenderer.flipX = true;
+            isLeftDirected = true;
+            startRun();
+        }
+        if(Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+        {
+            stopRun();
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -37,22 +47,31 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
+    private void startRun()
+    {
+        _spriteRenderer.flipX = isLeftDirected;
+        _animator.SetBool("isRun", true);
+    }
+
+    private void stopRun()
+    {
+        _animator.SetBool("isRun", false);
+    }
+
     private void HorizontalMove(float direction)
     {
-        transform.Translate(_speed * Time.deltaTime * direction, 0, 0);
+        _speed = _maxSpeed * Time.deltaTime;
+        transform.Translate(_speed * direction, 0, 0);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Coin coin = collision.gameObject.GetComponent<Coin>();
-        if (coin != null)
+        if (collision.gameObject.tag == "Coin")
         {
-            Debug.Log("Collider!");
             _pickedUp.Invoke();
-            Destroy(coin.gameObject);
+            Destroy(collision.gameObject);
         }
-        PatrolMovement enemy = collision.gameObject.GetComponent<PatrolMovement>();
-        if(enemy != null)
+        if (collision.gameObject.tag == "Enemy")
         {
             Respawn();
         }

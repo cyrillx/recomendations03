@@ -7,7 +7,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: isRun
+    m_EventTreshold: 0.00002
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5527971382159738740}
   m_Solo: 0
@@ -17,7 +20,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -30,7 +33,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PlayerIdle
-  m_Speed: 1
+  m_Speed: 0.25
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -6694381686092018067}
@@ -58,8 +61,8 @@ AnimatorController:
   m_Name: Entities_1
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: speed
-    m_Type: 1
+  - m_Name: isRun
+    m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -136,7 +139,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 2
+    m_ConditionEvent: isRun
+    m_EventTreshold: 0.0002
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1767021049012607515}
   m_Solo: 0
@@ -146,7 +152,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0.57142854
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
