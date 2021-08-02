@@ -1,15 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PatrolMovement : MonoBehaviour
 {
     [SerializeField] private Transform _path;
     [SerializeField] private float _speed;
 
+    private SpriteRenderer _spriteRenderer;
     private Transform[] _points;
     private int _currentPoint;
-    private SpriteRenderer _spriteRenderer;
 
     private void Start()
     {
@@ -28,8 +26,6 @@ public class PatrolMovement : MonoBehaviour
 
         if(transform.position == target.position)
         {
-            Debug.Log("URA");
-
             _currentPoint++;
             if(_currentPoint >= _points.Length)
             {

@@ -361,7 +361,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 126967106}
   _rigidbody2D: {fileID: 126967110}
-  _respawnPoition: {fileID: 1125903146}
+  _respawnPosition: {fileID: 0}
+  _animator: {fileID: 126967108}
   _maxSpeed: 5
   _jumpForce: 350
   _pickedUp:
@@ -378,7 +379,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _animator: {fileID: 126967108}
 --- !u!1 &187736322
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,7 +722,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1125903146}
   m_Layer: 0
-  m_Name: Respawn
+  m_Name: PlayerSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

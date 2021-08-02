@@ -1,19 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerMove : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private Rigidbody2D _rigidbody2D;
-    [SerializeField] private Transform _respawnPoition;
+    [SerializeField] private Transform _respawnPosition;
+    [SerializeField] private Animator _animator;
     [SerializeField] private float _maxSpeed;
     [SerializeField] private float _jumpForce;
     [SerializeField] private UnityEvent _pickedUp;
-    [SerializeField] private Animator _animator;
 
-    private float _speed = 0;
     private bool isLeftDirected;
 
     private void Update()
@@ -42,7 +39,6 @@ public class PlayerMove : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("Jump!");
             _rigidbody2D.AddForce(Vector2.up * _jumpForce);
         }
     }
@@ -60,8 +56,7 @@ public class PlayerMove : MonoBehaviour
 
     private void HorizontalMove(float direction)
     {
-        _speed = _maxSpeed * Time.deltaTime;
-        transform.Translate(_speed * direction, 0, 0);
+        transform.Translate(_maxSpeed * Time.deltaTime * direction, 0, 0);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -73,11 +68,12 @@ public class PlayerMove : MonoBehaviour
         }
         if (collision.gameObject.tag == "Enemy")
         {
-            Respawn();
+            playerSpawn();
         }
     }
-    private void Respawn()
+
+    private void playerSpawn()
     {
-        transform.position = new Vector3(_respawnPoition.position.x, _respawnPoition.position.y);
+        transform.position = new Vector3(_respawnPosition.position.x, _respawnPosition.position.y);
     }
 }
