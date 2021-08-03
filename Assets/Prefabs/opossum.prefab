@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2886556042340907376}
   - component: {fileID: 4573016427902041663}
   - component: {fileID: 6088130936767630752}
+  - component: {fileID: -6755107072280956871}
   m_Layer: 0
   m_Name: opossum
   m_TagString: Enemy
@@ -143,3 +144,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.27, y: 0.16}
   m_EdgeRadius: 0
+--- !u!114 &-6755107072280956871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2886556042340907379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c4050278f2cc144c9bb90b7f24d2828, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
