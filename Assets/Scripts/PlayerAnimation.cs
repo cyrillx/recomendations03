@@ -1,24 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class PlayerDisplay : MonoBehaviour
+public class PlayerAnimation : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private Animator _animator;
-
-    private bool _isTurnedLeft;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
-            _isTurnedLeft = false;
             StartRun();
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
-            _isTurnedLeft = true;
             StartRun();
         }
         if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
@@ -29,7 +22,6 @@ public class PlayerDisplay : MonoBehaviour
 
     private void StartRun()
     {
-        _spriteRenderer.flipX = _isTurnedLeft;
         _animator.SetBool("isRun", true);
     }
 

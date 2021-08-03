@@ -5,13 +5,11 @@ public class PatrolMovement : MonoBehaviour
     [SerializeField] private Transform _path;
     [SerializeField] private float _speed;
 
-    private SpriteRenderer _spriteRenderer;
     private Transform[] _points;
     private int _currentPoint;
 
     private void Start()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
         _points = new Transform[_path.childCount];
         for (int i = 0; i < _points.Length; i++)
         {
@@ -31,11 +29,6 @@ public class PatrolMovement : MonoBehaviour
             {
                 _currentPoint = 0;
             }
-
-            if (_points[_currentPoint].position.x > transform.position.x)
-                _spriteRenderer.flipX = true;
-            else
-                _spriteRenderer.flipX = false;
         }
     }
 }

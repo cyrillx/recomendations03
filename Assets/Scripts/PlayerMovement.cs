@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -40,11 +39,11 @@ public class PlayerMovement : MonoBehaviour
         Enemy touchedEnemy = collision.gameObject.GetComponent<Enemy>();
         if (touchedEnemy != null)
         {
-            playerSpawn();
+            PlayerSpawn();
         }
     }
 
-    private void playerSpawn()
+    private void PlayerSpawn()
     {
         transform.position = new Vector3(_respawnPosition.position.x, _respawnPosition.position.y);
     }

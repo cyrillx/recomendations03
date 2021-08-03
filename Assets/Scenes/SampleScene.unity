@@ -209,6 +209,8 @@ GameObject:
   - component: {fileID: 126967111}
   - component: {fileID: 126967110}
   - component: {fileID: 126967109}
+  - component: {fileID: 126967112}
+  - component: {fileID: 126967113}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -359,26 +361,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2476a8858d1c81f4e81a09ba47a4a71d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteRenderer: {fileID: 126967106}
   _rigidbody2D: {fileID: 126967110}
   _respawnPosition: {fileID: 1125903146}
-  _animator: {fileID: 126967108}
   _maxSpeed: 5
   _jumpForce: 350
-  _pickedUp:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 362813189}
-        m_MethodName: SpawnNextCoin
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+--- !u!114 &126967112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126967105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6edf33dbc34d624e9f827e63011225c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 126967108}
+--- !u!114 &126967113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126967105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74b63b59b124c614ab57db4d62b37de9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &187736322
 GameObject:
   m_ObjectHideFlags: 0
