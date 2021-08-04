@@ -20,7 +20,9 @@ public class CoinSpawner : MonoBehaviour
 
     public void SpawnNextCoin()
     {
-        GameObject.Instantiate(_coinTemplate, _spawnPoints[_currentPoint].position, Quaternion.identity, transform);
+        Coin newCoin = GameObject.Instantiate(_coinTemplate, _spawnPoints[_currentPoint].position, Quaternion.identity, transform).GetComponent<Coin>();
+        newCoin.PickedUp += SpawnNextCoin;
+
         _currentPoint++;
         if(_currentPoint == _spawnPoints.Length)
             _currentPoint = 0;
