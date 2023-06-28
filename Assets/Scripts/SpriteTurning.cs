@@ -16,14 +16,18 @@ public class SpriteTurning : MonoBehaviour
     private void Update()
     {
         Vector3 newPosition = gameObject.transform.position;
-        if (_lastPosition.x == newPosition.x) return;
+
+        if (_lastPosition.x == newPosition.x)
+            return;
 
         bool isMovedLeft = _lastPosition.x > newPosition.x;
-        if(_isTurnedLeft != isMovedLeft)
+
+        if (_isTurnedLeft != isMovedLeft)
         {
             _isTurnedLeft = isMovedLeft;
             _spriteRenderer.flipX = _isTurnedLeft;
         }
+
         _lastPosition = newPosition;
     }
 }

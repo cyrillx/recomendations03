@@ -13,10 +13,12 @@ public class PlayerMovement : MonoBehaviour
         {
             HorizontalMove(Vector3.right);
         }
+
         if (Input.GetKey(KeyCode.A))
         {
             HorizontalMove(Vector3.left);
         }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             _rigidbody2D.AddForce(Vector2.up * _jumpForce);
@@ -30,14 +32,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Coin pickedCoin = collision.gameObject.GetComponent<Coin>();
-        if (pickedCoin != null)
+        if(collision.TryGetComponent<Coin>(out Coin pickedCoin))
         {
             Destroy(pickedCoin.gameObject);
         }
 
-        Enemy touchedEnemy = collision.gameObject.GetComponent<Enemy>();
-        if (touchedEnemy != null)
+        if(collision.TryGetComponent<Enemy>(out Enemy touchedEnemy))
         {
             PlayerSpawn();
         }

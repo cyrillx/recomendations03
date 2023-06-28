@@ -11,6 +11,7 @@ public class PatrolMovement : MonoBehaviour
     private void Start()
     {
         _points = new Transform[_path.childCount];
+
         for (int i = 0; i < _points.Length; i++)
         {
             _points[i] = _path.GetChild(i);
@@ -25,7 +26,8 @@ public class PatrolMovement : MonoBehaviour
         if(transform.position == target.position)
         {
             _currentPoint++;
-            if(_currentPoint >= _points.Length)
+
+            if (_currentPoint >= _points.Length)
             {
                 _currentPoint = 0;
             }
