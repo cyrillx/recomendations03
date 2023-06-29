@@ -19,17 +19,6 @@ public class CoinSpawner : MonoBehaviour
         SpawnNextCoin();
     }
 
-    public void SpawnNextCoin()
-    {
-        _coin = GameObject.Instantiate(_coinTemplate, _spawnPoints[_currentPoint].position, Quaternion.identity, transform).GetComponent<Coin>();
-        _coin.PickedUp += SpawnNextCoin;
-
-        _currentPoint++;
-
-        if (_currentPoint == _spawnPoints.Length)
-            _currentPoint = 0;
-    }
-
     private void OnEnable()
     {
         if(_coin != null)
@@ -40,5 +29,16 @@ public class CoinSpawner : MonoBehaviour
     {
         if (_coin != null)
             _coin.PickedUp -= SpawnNextCoin;
+    }
+
+    public void SpawnNextCoin()
+    {
+        _coin = GameObject.Instantiate(_coinTemplate, _spawnPoints[_currentPoint].position, Quaternion.identity, transform).GetComponent<Coin>();
+        _coin.PickedUp += SpawnNextCoin;
+
+        _currentPoint++;
+
+        if (_currentPoint == _spawnPoints.Length)
+            _currentPoint = 0;
     }
 }

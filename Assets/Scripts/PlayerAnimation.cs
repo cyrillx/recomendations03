@@ -4,29 +4,15 @@ public class PlayerAnimation : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
 
-    private void Update()
+    private const string AnimationRun = "isRun";
+
+    public void StartRun()
     {
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            StartRun();
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            StartRun();
-        }
-        if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
-        {
-            StopRun();
-        }
+        _animator.SetBool(AnimationRun, true);
     }
 
-    private void StartRun()
+    public void StopRun()
     {
-        _animator.SetBool("isRun", true);
-    }
-
-    private void StopRun()
-    {
-        _animator.SetBool("isRun", false);
+        _animator.SetBool(AnimationRun, false);
     }
 }

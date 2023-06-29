@@ -7,29 +7,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _maxSpeed;
     [SerializeField] private float _jumpForce;
 
-    private void Update()
-    {
-        if (Input.GetKey(KeyCode.D))
-        {
-            HorizontalMove(Vector3.right);
-        }
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            HorizontalMove(Vector3.left);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _rigidbody2D.AddForce(Vector2.up * _jumpForce);
-        }
-    }
-
-    private void HorizontalMove(Vector3 direction)
-    {
-        transform.Translate(_maxSpeed * Time.deltaTime * direction);
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.TryGetComponent<Coin>(out Coin pickedCoin))
@@ -39,11 +16,21 @@ public class PlayerMovement : MonoBehaviour
 
         if(collision.TryGetComponent<Enemy>(out Enemy touchedEnemy))
         {
-            PlayerSpawn();
+            SpawnPlayer();
         }
     }
 
-    private void PlayerSpawn()
+    public void Jump()
+    {
+        _rigidbody2D.AddForce(Vector2.up * _jumpForce);
+    }
+
+    public void MoveHorizontal(Vector3 direction)
+    {
+        transform.Translate(_maxSpeed * Time.deltaTime * direction);
+    }
+
+    private void SpawnPlayer()
     {
         transform.position = new Vector3(_respawnPosition.position.x, _respawnPosition.position.y);
     }
