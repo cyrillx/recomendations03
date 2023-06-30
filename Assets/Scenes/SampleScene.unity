@@ -493,7 +493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnCluster: {fileID: 4637734237042005154}
-  _coinTemplate: {fileID: 1429082642657637997, guid: 4261fec79ad5e734eae0e665b3915648,
+  _coinTemplate: {fileID: -69435794019151183, guid: 4261fec79ad5e734eae0e665b3915648,
     type: 3}
 --- !u!1 &519420028
 GameObject:

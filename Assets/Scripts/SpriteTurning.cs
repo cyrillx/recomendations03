@@ -9,13 +9,13 @@ public class SpriteTurning : MonoBehaviour
     private void Start()
     {
         _isTurnedLeft = false;
-        _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        _lastPosition = gameObject.transform.position;
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _lastPosition = transform.position;
     }
 
     private void Update()
     {
-        Vector3 newPosition = gameObject.transform.position;
+        Vector3 newPosition = transform.position;
 
         if (_lastPosition.x == newPosition.x)
             return;

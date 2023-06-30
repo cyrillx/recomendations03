@@ -3,7 +3,7 @@
 public class CoinSpawner : MonoBehaviour
 {
     [SerializeField] private Transform _spawnCluster;
-    [SerializeField] private GameObject _coinTemplate;
+    [SerializeField] private Coin _coinTemplate;
 
     private Transform[] _spawnPoints;
     private int _currentPoint;
@@ -33,9 +33,9 @@ public class CoinSpawner : MonoBehaviour
 
     public void SpawnNextCoin()
     {
-        _coin = GameObject.Instantiate(_coinTemplate, _spawnPoints[_currentPoint].position, Quaternion.identity, transform).GetComponent<Coin>();
+        _coin = GameObject.Instantiate(_coinTemplate, _spawnPoints[_currentPoint].position,
+            Quaternion.identity, transform).GetComponent<Coin>();
         _coin.PickedUp += SpawnNextCoin;
-
         _currentPoint++;
 
         if (_currentPoint == _spawnPoints.Length)
