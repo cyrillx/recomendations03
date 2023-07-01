@@ -2,9 +2,9 @@
 
 public class PlayerAnimation : MonoBehaviour
 {
-    [SerializeField] private Animator _animator;
-
     private const string AnimationRun = "isRun";
+
+    [SerializeField] private Animator _animator;
 
     public void StartRun()
     {
