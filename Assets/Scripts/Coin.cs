@@ -13,7 +13,7 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<PlayerMovement>() != null)
+        if(collision.TryGetComponent<PlayerMovement>(out PlayerMovement playerMovement))
         {
             _pickedUp.Invoke();
         }

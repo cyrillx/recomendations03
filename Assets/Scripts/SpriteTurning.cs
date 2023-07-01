@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(SpriteRenderer))]
 public class SpriteTurning : MonoBehaviour
 {
     private SpriteRenderer _spriteRenderer;
